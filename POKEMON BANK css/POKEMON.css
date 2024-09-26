@@ -1,8 +1,16 @@
+@font-face{
+
+    font-family:'PokemonSolid';
+    src: url(/fonts/PokemonSolid.ttf);
+    font-weight: bold;
+    font-style: bold;
+}
+
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "Poppins", sans-serif;
+    font-family: sans-serif;
 }
 
 .root {
@@ -49,29 +57,31 @@ a:hover {
     padding: 4rem 1.5rem 1rem 1.5rem;
     border: 2px solid var(--primary-color);
     border-radius: 15px;
-    backdrop-filter: blur(25px);
+    backdrop-filter: blur(40px);
     box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
     color: var(--secondary-color);
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 .login-header {
     display: flex;
+    font-family: 'PokemonSolid';
     position: absolute;
     top: 0;
     left: 25%;
     align-items: center;
     justify-content: center;
-    padding: 0.5rem 1.5rem;
+    padding: 1.5rem 1.5rem;
     transform: translate(-50);
-    border-radius: 0 0 20px 20px;
+    border-radius: 0 0 40px 40px;
     background-color: var(--primary-color);
-    color: yellow;
+    color: blue;
     font-weight: bold;
     font-size: clamp( 1rem 6vw 3rem);
-    text-shadow: 2px 2px 0 blue,   /* Sombra hacia abajo a la derecha */
-    -2px 2px 0 blue,  /* Sombra hacia abajo a la izquierda */
-    2px -2px 0 blue,  /* Sombra hacia arriba a la derecha */
-    -2px -2px 0 blue; /* Sombra hacia arriba a la izquierda */
+    text-shadow: 2px 2px 0 yellow,   /* Sombra hacia abajo a la derecha */
+    -2px 2px 0 yellow,  /* Sombra hacia abajo a la izquierda */
+    2px -2px 0 yellow,  /* Sombra hacia arriba a la derecha */
+    -2px -2px 0 yellow; /* Sombra hacia arriba a la izquierda */
 }
 
 .login-header::before{
