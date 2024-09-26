@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="../POKEMON BANK css/Pokemon.css"/>
+    <link rel="stylesheet" href="../POKEMON BANK css/historial_transacciones.css"/>
+    <title>Historial de Transacciones</title>
+    <link rel="icon"
+        href="https://static.vecteezy.com/system/resources/previews/010/574/353/original/pokeball-play-icon-free-vector.jpg"
+        type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="menu-container">
+        <h1>Historial de Transacciones</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Descripción</th>
+                    <th>Monto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01/01/2023</td>
+                    <td>Depósito</td>
+                    <td>$100</td>
+                </tr>
+                <tr>
+                    <td>15/01/2023</td>
+                    <td>Retiro</td>
+                    <td>$50</td>
+                </tr>
+                <tr>
+                    <td>20/01/2023</td>
+                    <td>Pago de servicios</td>
+                    <td>$30</td>
+                </tr>
+                <tr>
+                    <td>25/01/2023</td>
+                    <td>Depósito</td>
+                    <td>$200</td>
+                </tr>
+                <tr>
+                    <td>10/02/2023</td>
+                    <td>Transferencia</td>
+                    <td>$150</td>
+                </tr>
+                <tr>
+                    <td>15/02/2023</td>
+                    <td>Retiro</td>
+                    <td>$75</td>
+                </tr>
+                <tr>
+                    <td>28/02/2023</td>
+                    <td>Depósito</td>
+                    <td>$300</td>
+                </tr>
+                <tr>
+                    <td>05/03/2023</td>
+                    <td>Compra en línea</td>
+                    <td>$120</td>
+                </tr>
+                
+            </tbody>
+        </table>
+        <button onclick="location.href='menu.html'">Volver al menú</button>
+    </div>
+
+    <script>
+        // SweetAlert para mostrar un mensaje al cargar la página
+        Swal.fire({
+            title: 'Historial de Transacciones',
+            text: 'Aquí puedes ver todas tus transacciones.',
+            icon: 'info',
+            confirmButtonText: 'Ok'
+        });
+    </script>
+</body>
+</html>
