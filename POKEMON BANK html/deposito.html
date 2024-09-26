@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="../POKEMON BANK css/deposito.css"/> <!-- Agregar deposito.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> <!-- Agregar SweetAlert CSS -->
+    <title>Depósito</title>
+    <link rel="icon"
+        href="https://static.vecteezy.com/system/resources/previews/010/574/353/original/pokeball-play-icon-free-vector.jpg"
+        type="image/png">
+    <style>
+        .currency-input {
+            position: relative;
+        }
+        .currency-input input {
+            padding-left: 25px; /* Espacio para el símbolo de $ */
+        }
+        .currency-input::before {
+            content: '$';
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <h1>Realizar un Depósito</h1>
+
+        <!-- Información del dueño de la cuenta -->
+        <div class="account-info">
+            <p><strong>Nombre:</strong> Jonathan Flamenco</p>
+            <p><strong>Número de cuenta:</strong> 1234567890</p>
+        </div>
+
+        <form id="deposit-form">
+            <label for="monto">Monto a Depositar:</label>
+            <div class="currency-input">
+                <input type="number" id="monto" name="monto" required min="1" placeholder="Ingrese el monto"/>
+            </div>
+
+            <label for="tipo-deposito">Tipo de Depósito:</label>
+            <select id="tipo-deposito" name="tipo-deposito" required>
+                <option value="" disabled selected>Seleccione un tipo</option>
+                <option value="efectivo">Efectivo</option>
+                <option value="cheque">Cheque</option>
+                <option value="transferencia">Transferencia</option>
+            </select>
+
+            <button type="submit" class="menu-button">Confirmar Depósito</button>
+        </form>
+
+        <!-- Botón para volver al menú principal -->
+        <button class="menu-button" onclick="location.href='menu.html'">Volver al Menú Principal</button>
+    </div>
+
+    <!-- Agregar SweetAlert JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+    <script>
+        document.getElementById('deposit-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const montoInput = document.getElementById('monto');
+            const monto = parseFloat(montoInput.value);
+            const tipoDeposito = document.getElementById('tipo-deposito').value;
+
+            // Validación de la entrada
+            if (montoInput.value.trim() === "" || isNaN(monto) || monto <= 0) {
+                swal({
+                    title: "Oops",
+                    text: "Por favor ingrese un monto válido.",
+                    icon: "error", 
+                });
+                return;
+            }
+
+            if (!tipoDeposito) {
+                swal({
+                    title: "Oops",
+                    text: "Por favor seleccione un tipo de depósito.",
+                    icon: "error",
+                });
+                return;
+            }
+
+            // Formatear el monto en dólares
+            const montoFormateado = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+            }).format(monto);
+
+            // Mostrar alerta de éxito con SweetAlert
+            swal({
+                title: "¡Éxito!",
+                text: `Depósito de ${montoFormateado} realizado exitosamente como ${tipoDeposito}.`,
+                icon: "success",
+                button: "Aceptar",
+            }).then((value) => {
+                if (value) {
+                    // Limpiar los campos del formulario después de confirmar
+                    montoInput.value = ""; // Limpiar campo de monto
+                    document.getElementById('tipo-deposito').selectedIndex = 0; // Reiniciar selección del tipo de depósito
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
